@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+    
+@layer base {
+    :root {
+        --text-rose: rgba(190, 18, 60, 1);
+        --text-emerald: rgba(5, 150, 105, 1);
+        --timing: .3s;
+        --cubic: cubic-bezier(0, 0, 0.2, 1);
+        --font-palette: --light;
+        --color: #27272a;
+        --border-color: #27272a;
+        --border-color--qr: #e6e6e6;
+        --opacity: .35;
+        --background-color--moon: transparent;
+        --text-shadow: -9px 7px 3px;
+        --text-shadow--nabla: -7px 7px 2px;
+        --text-shadow-color: #dcdcdc;
+        --text-shadow--nabla-color: #dcdcdc;
+        --background-image: radial-gradient(#1d1a24 1px 1px, #f8f8ff 1px);
+        --filter--sun: invert(94%) sepia(2%) saturate(5330%) hue-rotate(191deg) brightness(101%) contrast(109%);
+        --filter--link: none;
+        --box-shadow: rgba(245, 251, 255, .2) 0px 1px 1px 0px inset, rgba(83, 76, 114, .2) 0px -10px 85px -20px, rgba(80, 64, 86, .3) -15px 15px 60px -30px;
+        --box-shadow--hover: rgba(245, 251, 255, .4) 0px 1px 1px 0px inset, rgba(83, 76, 114, .4) 0px -10px 85px -20px, rgba(80, 64, 86, .4) -15px 15px 60px -30px;
+    }
+    .--xl {
+        --text-shadow: -23px 15px 3px;
+        --text-shadow--nabla: -15px 15px 3px;
+    }
+    main p { 
+        text-wrap: balance;
+    }
+    p { @apply 
+        text-main;
+    }
+    body * { 
+        cursor: initial;
+    }
+    .toggle-container * { @apply 
+        cursor-pointer;
+    }
+}
+
+@layer components {
+    html { @apply
+        scroll-smooth
+        font-space-grotesk
+        text-html
+        text-[var(--color)]
+        transition-mode--color
+        max-xl:overflow-x-hidden
+        max-xs:text-html-xs
+        sm:text-html-sm
+        2xl:text-html-2xl
+    }
+    .h1 { @apply
+        font-palette
+        text-h1
+        font-bold
+        tracking-wider
+        word-tight
+        whitespace-nowrap
+        mb-12
+        text-shadow
+        cursor-crosshair
+        sm:text-7xl
+        xl:text-10xl
+    }
+    .h2 { @apply 
+        tracking-wide;
+    }
+    .float { @apply 
+        font-nabla 
+        inline-block 
+        animation-float 
+        text-shadow-nabla
+    }
+    .float img {
+        margin-left: .375rem;
+        margin-right: 1rem;
+        filter: drop-shadow(var(--text-shadow--nabla) var(--text-shadow--nabla-color));
+        transition: var(--timing) filter var(--cubic);
+    }
+    .qr { 
+        width: 16rem; 
+        height: 16rem;
+        border-radius: 2.5rem;
+        border-width: 1px;
+        border-color: var(--border-color--qr);
+        transition: 2.25s box-shadow cubic-bezier(0, 0, 0.2, 1), 
+                    1.75s transform cubic-bezier(0, 0, 0.2, 1), 
+                    var(--timing) border-color var(--cubic);
+        box-shadow: var(--box-shadow); 
+    }
+    .qr:hover { 
+        transform: translate3d(1rem, -1rem, 0);
+        box-shadow: var(--box-shadow--hover); 
+    }
+    #sun { 
+        filter: var(--filter--sun);
+    }
+    .sm-link { 
+        width: 5rem;
+        height: 5rem;
+        cursor: pointer;
+        filter: var(--filter--link);
+        transition: var(--timing) filter var(--cubic);
+    }
+    #sun-bg.-right-px { 
+        background-color: transparent;
+    }
+    #sun-bg.--dark { 
+        background-color: #27272a;
+    }
+    #moon-bg { 
+        background-color: var(--background-color--moon);
+    }
+    .bg { 
+        opacity: var(--opacity);
+        background-image: var(--background-image);
+        transition: var(--timing) opacity var(--cubic),
+                    var(--timing) background-image var(--cubic);
+    }
+    .toggle-container { 
+        border-color: var(--border-color);
+    }
+    .text-shadow { 
+        text-shadow: var(--text-shadow) var(--text-shadow-color);
+    }
+    .text-shadow-nabla { 
+        text-shadow: var(--text-shadow--nabla) var(--text-shadow--nabla-color);
+    }
+    .help {
+        position: absolute;
+        cursor: crosshair;
+        width: fit-content;
+        transition: .35s opacity cubic-bezier(.65,.05,.36,1);
+    }
+    .help-container {
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        grid-template-columns: 10.5rem 3fr;
+        display: grid;
+        cursor: crosshair;
+        max-width: 33rem;
+        box-shadow: var(--box-shadow);
+        background-image: var(--background-image);
+    }
+}
+
+@layer utilities {
+    .--dark {
+        --text-rose: rgba(244, 63, 94, 1);
+        --text-emerald: rgba(52, 211, 153, 1);
+        --font-palette: --dark;
+        --color: #efeeff;
+        --border-color: #efeeff;
+        --border-color--qr: transparent;
+        --opacity: 1;
+        --background-color--moon: #efeeff;
+        --text-shadow-color: #473d5380;
+        --text-shadow--nabla-color: #56515b59;
+        --background-image: radial-gradient(#2e114dbf 1px, #080410e5 1px);
+        --filter--sun: invert(99%) sepia(61%) saturate(14%) hue-rotate(325deg) brightness(96%) contrast(95%);
+        --filter--link: invert(94%) sepia(2%) saturate(5330%) hue-rotate(191deg) brightness(101%) contrast(109%);
+        --box-shadow: rgba(228, 246, 250, .2) 0px 1px 1px 0px inset, 
+        rgba(65, 60, 88, .2) 0px -10px 85px -20px, rgba(135, 126, 139, .2) -15px 15px 60px -30px;
+        --box-shadow--hover: rgba(255, 205, 110, .4) 0px 1px 1px 0px inset, rgba(150, 142, 183, .5) 0px -10px 85px -20px, rgba(168, 144, 177, .4) -15px 15px 60px -30px;
+    }
+    .--dark.--xl {
+        --text-shadow-color: #473d5380;
+        --text-shadow--nabla-color: #483f516b;
+    }
+    .font-palette { 
+        font-palette: var(--font-palette);
+        font-variation-settings: "EDPT" 220, "EHLT" 6; 
+        transition: var(--timing) font-palette var(--cubic);
+    }
+    .float { 
+        --delay: 1.3s;
+    }
+    .transform-v.float { 
+        --delay: 2.25s;
+    }
+    .float:nth-child(odd) { 
+        --name: odd;
+    }
+    .float:nth-child(even) { 
+        --name: even;
+    }
+    .opacity-35 { 
+        opacity: .35;
+    }
+    .place-center { 
+        place-items: center;
+    }
+    .perspective { 
+        perspective: 800px;
+    }
+    .word-tight { 
+        word-spacing: -.25em;
+    }
+    .text-rose {
+        color: var(--text-rose);
+    }
+    .text-emerald {
+        color: var(--text-emerald);
+    }
+    .filter--help-img {
+        filter: brightness(175%) contrast(70%);
+    }
+    .transition-qr {
+        transition: 2.25s box-shadow cubic-bezier(0, 0, 0.2, 1), 
+                    1.75s transform cubic-bezier(0, 0, 0.2, 1);
+    }
+    .transition-mode--color {
+        transition: var(--timing) color var(--cubic);
+    }
+    .transform-center { 
+        transform: translate(-50%, 0);
+    }
+    .transform-qr { 
+        transform: translate3d(1rem, -1rem, 0);
+    }
+    .transform-v {
+        transform: rotate3d(-15, 66, 5, 12deg);
+        transition: 1.75s transform cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    }
+    .transform-m {
+        transform: rotate3d(12, -30, -4, 9deg);
+        transition: 1.75s transform cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    }
+    .animation-float {
+        animation: 14s var(--name) var(--delay) cubic-bezier(.65,.05,.36,1) infinite;
+    }
+    @keyframes odd {
+        0%, 93.3% { 
+            transform: translateY(0);
+        }
+        23.3% { 
+            transform: translateY(-1.25rem);
+        }
+        70% { 
+            transform: translateY(1.25rem);
+        }
+    }
+    @keyframes even {
+        0%, 93.3% { 
+            transform: translateY(0);
+        }
+        23.3% { 
+            transform: translateY(1.25rem);
+        }
+        70% { 
+            transform: translateY(-1.25rem);
+        }
+    }
+    .animation-marquee {
+        animation: marquee 300s linear infinite;
+    }
+    @keyframes marquee { 
+        to { 
+            transform: translate3d(-50%, 0, 0);
+        } 
+    }
+}
+
+@font-palette-values --dark {
+    font-family: "Nabla";
+    override-colors: 0 #000, 1 #804fa1, 2 #000, 3 #412b73, 4 #61d7f5, 5 #000, 6 #ffe8c4, 7 #8165c3, 8 #75d6ff, 9 #fff; 
+}
+
+@font-palette-values --light {
+    font-family: "Nabla";
+    override-colors: 0 #fff, 1 #5aafaa, 2 #fff, 3 #643c96, 4 #87c5d9, 5 #fff, 6 #ff7b42, 7 #ffb900, 8 #67bec1, 9 #e4f4fb; 
+}
+
+@supports (contain: paint) and (not (-moz-appearance: none)) {
+    body {
+        border-radius: 1px;
+    }
+}
