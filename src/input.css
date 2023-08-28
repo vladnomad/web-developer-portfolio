@@ -264,6 +264,15 @@
             transform: translate3d(-50%, 0, 0);
         } 
     }
+    .animation-rotate {
+        animation: rotate 180s linear infinite;
+        transform-origin: center;
+    }
+    @keyframes rotate { 
+        to { 
+            transform: rotateZ(360deg);
+        } 
+    }
 }
 
 @font-palette-values --dark {
