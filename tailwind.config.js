@@ -20,7 +20,7 @@ module.exports = {
         2: "2"
       },
       gridTemplateRows: {
-        body: "calc(100dvh - 12rem) 12rem",
+        body: "calc(100dvh - 10rem) 10rem",
         "body-xl": "100dvh"
       },
       gridRow: {

@@ -147,6 +147,9 @@
         box-shadow: var(--box-shadow);
         background-image: var(--background-image);
     }
+    .new-project-text {
+        fill: var(--color);
+    }
 }
 
 @layer utilities {

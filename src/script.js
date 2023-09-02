@@ -17,12 +17,13 @@ window.addEventListener("DOMContentLoaded", () => {
           float = document.querySelectorAll(".float"),
           smLink = document.querySelectorAll(".sm-link"),
           qr = document.querySelectorAll(".qr"),
+          newProject = document.querySelectorAll(".new-project-text"),
 
           mediaSm = window.matchMedia("(max-width: 640px)"),
           mediaXl = window.matchMedia("(min-width: 1300px)"),
           darkMode = sun.classList.contains("--dark"),
           darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)"),
-          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, float, smLink, qr]; 
+          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, float, smLink, qr, newProject]; 
 
     const setFloatContent = (darkMode, matchedXl) => {
         const chrome = getComputedStyle(body).borderRadius;
