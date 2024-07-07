@@ -135,6 +135,7 @@
         position: absolute;
         cursor: crosshair;
         width: fit-content;
+        z-index: 1;
         transition: .35s opacity cubic-bezier(.65,.05,.36,1);
     }
     .help-container {
