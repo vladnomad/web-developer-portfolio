@@ -139,6 +139,11 @@ window.addEventListener("DOMContentLoaded", () => {
         toggleDarkMode(elementsToChange);
     });
 
-    float[0].addEventListener("mouseover", (e) => showModal(e));
-    float[0].addEventListener("mouseout", () => hideModal());
+    float.forEach((item) => {
+        item.addEventListener("mouseover", (e) => showModal(e));
+    });
+
+    float.forEach((item) => {
+        item.addEventListener("mouseout", () => hideModal());
+    });
 });
