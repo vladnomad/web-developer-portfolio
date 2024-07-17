@@ -3,6 +3,7 @@
 module.exports = {
   content: [
     "./public/index.html",
+    "./muzone/index.html",
     "./src/input.css"
   ],
   theme: {

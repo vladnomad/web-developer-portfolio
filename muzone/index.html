@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="
+        Vlad Mosiichuk ✹ Warsaw-based front end developer. Specializing in creating interactive experiences. Available for freelance & full-time work" />
+        <title>webDev ✹ Vlad Mosiichuk</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#523f8e">
+        <meta name="apple-mobile-web-app-title" content="madebynomad.dev">
+        <meta name="application-name" content="madebynomad.dev">
+        <meta name="msapplication-TileColor" content="#603cba">
+        <meta name="theme-color" content="#f3f8ff">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?&family=Space+Grotesk:wght@400;700&family=Nabla&display=swap" rel="stylesheet" /> 
+        <script defer src="script.js"></script>
+    </head>
+    <body class="grid place-center relative min-h-[100dvh] overflow-hidden cursor-crosshair grid-rows-body xl:grid-rows-body-xl xl:grid-cols-body">
+        <div class="bg fixed top-0 w-full h-full bg-stone-300 bg-size cursor-crosshair -z-10"></div>
+        <div class="toggle-container absolute top-0 left-[calc(50%_-_31.5px)] mt-12 border-2 rounded-full xl:left-[47.5%]" aria-hidden="true">
+            <button aria-label="Toggle Dark/Light Mode" class="toggle flex gap-6 items-center justify-between rounded-full py-2 px-4">
+                <div id="moon-bg" class="svg-bg -z-10 rounded-full absolute -left-px -top-px h-[calc(100%_+_2px)] w-[calc(55%_+_1px)]"></div>
+                <img src="img/icon--moon.svg" alt="Moon with stars outline icon" id="moon" class="svg w-10 h-10 xl:w-8 xl:h-8">
+                <div id="sun-bg" class="svg-bg -z-10 rounded-full absolute -right-px -top-px h-[calc(100%_+_2px)] w-[calc(55%_+_1px)] --dark"></div>
+                <img src="img/icon--sun.svg" alt="Sun with rays outline icon" id="sun" class="svg w-10 h-10 xl:w-8 xl:h-8 --dark">
+            </button>
+        </div>
+        <main class="grid relative place-center m-14 mt-60 perspective cursor-crosshair xl:m-0 slider-container"><!-- grid-muzone -->
+            <div class="photo-set" id="set1">
+                <img src="img/mobile_1.png" alt="" class="muzone mobile">
+                <img src="img/tablet_1.png" alt="" class="muzone tablet">
+                <img src="img/mobile_5.png" alt="" class="muzone mobile">
+            </div>
+            <div class="photo-set" id="set2">
+                <img src="img/desktop_2.png" alt="" class="muzone desktop">
+            </div>
+            <div class="photo-set" id="set3">
+                <img src="img/mobile_3.png" alt="" class="muzone mobile">
+                <img src="img/tablet_2.png" alt="" class="muzone tablet">
+                <img src="img/mobile_4.png" alt="" class="muzone mobile">
+            </div>
+        </main>
+        <aside class="cursor-crosshair max-w-[100dvw] overflow-hidden max-xl:row-2 xl:rotate-90 xl:col-2 xl:min-w-[100dvh]" aria-hidden="true">
+            <div class="whitespace-nowrap overflow-hidden inline-block animation-marquee">
+                <p class="h2 inline-block pl-2 xl:cursor-vertical-text">muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; </h2>
+                <p class="h2 inline-block pl-2 xl:cursor-vertical-text">muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; muzone music hub &#10041; </h2>
+            </div>
+        </aside>
+        <section class="h-full grid items-center max-xl:hidden" aria-label="Social Media links / Desktop">
+            <h2 class="h1 transform-v -mr-8 xl:-mr-0 max-sm:animation-h1">
+                Muzone
+            </h2>
+            <h2 class="h1 transform-m xl:mr-12 max-sm:animation-h1">
+                Web App
+            </h2>
+            <p class="text-center max-w-[41rem] mt-6 mb-24 xl:mt-20">Educational platform for music school students, lecturers and administrators. Educational platform for music school students, lecturers and administrators. Educational platform for music school students, lecturers and administrators. Educational platform for music school students, lecturers and administrators.</p>
+        </section>
+        <aside aria-label="Information about the key design element">
+            <div class="help opacity-0 -z-20">
+                <div class="help-container">
+                    <div class="max-w-[10.5rem]">
+                        <p class="text-help font-bold">Typearture's Nabla: an&nbsp;Isometric COLRv1 font</p>
+                        <p class="help-browser text-browser mt-1  text-emerald">
+                            <img id="help-img" width="16px" height="16px" src="img/help-browser--true.svg" alt="" class="inline-block -ml-[5px] mb-px" />
+                            You're currently using Google Chrome
+                        </p>
+                    </div>
+                    <p class="text-help">Nabla is a color font, built using the COLRv1 format, that allows for smooth gradients, sharp highlights & blended shadows. Currently COLRv1 is fully supported only in Chrome. Fallback for other browsers and mobile devices is set dynamically using JavaScript. Features two hand&#8209;picked color palettes for light/dark mode.</p>
+                </div>
+            </div> 
+        </aside>
+    </body>
+</html>
