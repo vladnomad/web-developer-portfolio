@@ -12,17 +12,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
           mediaXl = window.matchMedia("(min-width: 1300px)"),
           darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)"),
-          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1]; 
-
-    const mediaCheck = () => {
-        const matchedXl = mediaXl.matches;
-
-        if (matchedXl) {
-            h1.forEach(item => { item.classList.add("--xl") });
-        } else {
-            h1.forEach(item => { item.classList.remove("--xl") });
-        }
-    }
+          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1],
+          sets = [ 
+              document.querySelector('.set1'), 
+              document.querySelector('.set2'), 
+              document.querySelector('.set3') 
+          ]; 
 
     const toggleDarkMode = (array) => {
         array.forEach(arrayItem => {
@@ -31,8 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
-
-    mediaCheck();
 
     if (darkModeMedia.matches) {
         toggleDarkMode(elementsToChange);
@@ -50,58 +43,67 @@ window.addEventListener("DOMContentLoaded", () => {
         toggleDarkMode(elementsToChange);
     });
 
-    const sets = [ 
-        document.getElementById('set1'), 
-        document.getElementById('set2'), 
-        document.getElementById('set3') 
-    ]; 
-
     let currentIndex = 0; 
 
-    function updateStyles() {
-        const currentSet = sets[currentIndex];
+    const updateStyles = () => {
         const nextIndex = (currentIndex + 1) % sets.length;
-        const nextSet = sets[nextIndex];
         const prevIndex = (currentIndex + sets.length - 1) % sets.length;
+
+        const currentSet = sets[currentIndex];
+        const nextSet = sets[nextIndex];
         const prevSet = sets[prevIndex];
-    
+
         sets.forEach(set => {
-            set.style.transition = 'top 0.625s, opacity 0.375s';
-            set.style.position = 'absolute';
+            set.classList.remove('current-set', 'next-set', 'prev-set');
         });
-    
-        currentSet.style.top = '0';
-        currentSet.style.opacity = '1';
-        currentSet.style.zIndex = '1';
-        if (currentSet === sets[1]) {
-            currentSet.style.marginTop = '0';
-            currentSet.style.marginBottom = '2rem';
-        }
-    
-        nextSet.style.top = '69%';
-        nextSet.style.opacity = '1';
-        nextSet.style.zIndex = '0';
-        if (nextSet === sets[1]) {
-            nextSet.style.marginTop = '2rem';
-            nextSet.style.marginBottom = '0';
-        }
-        if (nextSet === sets[2]) {
-            nextSet.style.marginTop = '0';
-        }
-    
-        prevSet.style.top = '69%';
-        prevSet.style.opacity = '0';
-        prevSet.style.zIndex = '0';
+
+        currentSet.classList.add('current-set');
+        nextSet.classList.add('next-set');
+        prevSet.classList.add('prev-set');
     }
 
-    function slideUp() { 
+    const slideUp = () => {
         currentIndex = (currentIndex + 1) % sets.length;
         updateStyles();
-    } 
+    }
+
+    const slideLeft = (set) => {
+        const images = set.querySelectorAll('img');
+        let imageIndex = 0;
+
+        const slideImages = () => {
+            images.forEach((img) => {
+                img.style.transform = `translateX(-${100 * imageIndex}%)`;
+            });
+            imageIndex = (imageIndex + 1) % images.length;
+        };
+
+        if (mediaXl.matches) {
+            set.removeEventListener('click', slideImages);
+        } else {
+            set.addEventListener('click', slideImages);
+        }
+    };
+
+    const mediaCheck = () => {
+        if (mediaXl.matches) {
+            h1.forEach(item => { item.classList.add("--xl") });
+            sets.forEach(set => {
+                set.addEventListener('click', slideUp);
+            });
+        } else {
+            h1.forEach(item => { item.classList.remove("--xl") });
+            sets.forEach(set => {
+                set.removeEventListener('click', slideUp);
+            });
+        }
+        slideLeft(sets[0]);
+        slideLeft(sets[2]);
+    }
+
+    mediaCheck();
+
+    mediaXl.addEventListener("change", () => mediaCheck());
 
     updateStyles();
-
-    sets.forEach(set => { 
-        set.addEventListener('click', slideUp); 
-    });
 });    
