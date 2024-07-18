@@ -709,6 +709,7 @@ html {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   place-items: center;
+  margin-top: -3rem;
 }
 
 #set2 {
@@ -718,6 +719,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 #set3 {
@@ -726,6 +729,7 @@ html {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   place-items: center;
+  margin-top: -3rem;
 }
 
 #sun {

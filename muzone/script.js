@@ -57,24 +57,51 @@ window.addEventListener("DOMContentLoaded", () => {
     ]; 
 
     let currentIndex = 0; 
+
+    function updateStyles() {
+        const currentSet = sets[currentIndex];
+        const nextIndex = (currentIndex + 1) % sets.length;
+        const nextSet = sets[nextIndex];
+        const prevIndex = (currentIndex + sets.length - 1) % sets.length;
+        const prevSet = sets[prevIndex];
     
+        sets.forEach(set => {
+            set.style.transition = 'top 0.625s, opacity 0.375s';
+            set.style.position = 'absolute';
+        });
+    
+        currentSet.style.top = '0';
+        currentSet.style.opacity = '1';
+        currentSet.style.zIndex = '1';
+        if (currentSet === sets[1]) {
+            currentSet.style.marginTop = '0';
+            currentSet.style.marginBottom = '2rem';
+        }
+    
+        nextSet.style.top = '69%';
+        nextSet.style.opacity = '1';
+        nextSet.style.zIndex = '0';
+        if (nextSet === sets[1]) {
+            nextSet.style.marginTop = '2rem';
+            nextSet.style.marginBottom = '0';
+        }
+        if (nextSet === sets[2]) {
+            nextSet.style.marginTop = '0';
+        }
+    
+        prevSet.style.top = '69%';
+        prevSet.style.opacity = '0';
+        prevSet.style.zIndex = '0';
+    }
+
     function slideUp() { 
-        const currentSet = sets[currentIndex]; 
-        const nextIndex = (currentIndex + 1) % sets.length; 
-        const nextSet = sets[nextIndex]; 
-        const thirdIndex = (currentIndex + 2) % sets.length; 
-        const thirdSet = sets[thirdIndex]; 
-
-        currentSet.style.top = '100%'; 
-        nextSet.style.top = '0'; 
-        thirdSet.style.top = '77%'; 
-
-        currentSet.style.zIndex = '0'; 
-        nextSet.style.zIndex = '1'; 
-        currentIndex = nextIndex; 
+        currentIndex = (currentIndex + 1) % sets.length;
+        updateStyles();
     } 
-    
+
+    updateStyles();
+
     sets.forEach(set => { 
         set.addEventListener('click', slideUp); 
     });
-});
+});    
