@@ -15,7 +15,8 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        body: "calc(66.66% - 4rem) 8rem calc(33.33% - 4rem)"
+        body: "calc(66.66% - 4rem) 8rem calc(33.33% - 4rem)",
+        "body-mz": "calc(66.66% - 2rem) 1rem calc(33.33% - 2rem)"
       },   
       gridColumn: {
         2: "2"

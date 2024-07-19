@@ -145,13 +145,21 @@
         display: flex;
         margin-top: 0;
         margin-bottom: 2rem;
+        justify-content: center;
     }
     .showcase--3 { 
         top: 72%; 
         z-index: 0; 
         display: grid;
         grid-template-columns: 1fr auto 1fr;
-        margin-top: -3rem;
+    }
+    .showcase--4 { 
+        top: 77%;
+        z-index: 0;
+        padding-inline: 7.5%;
+        display: flex;
+        margin-top: 2rem;
+        justify-content: center;
     }
     .showcase.current-set {
         top: 0;
@@ -168,14 +176,17 @@
         opacity: 0;
         z-index: 0;
     }
-    .showcase.showcase--2.current-set {
-        margin-block: 0 2rem;
+    .xl\:showcase.xl\:showcase--2.current-set {
+        margin-block: -1rem 2rem;
     }
-    .showcase.showcase--2.next-set {
+    .xl\:showcase.xl\:showcase--2.next-set {
         margin-block: 2rem 0;
     }
-    .showcase.showcase--3.next-set {
+    .xl\:showcase.xl\:showcase--3.next-set {
         margin-top: 0;
+    }
+    .xl\:showcase.xl\:showcase--4.current-set {
+        margin-top: -2rem;
     }
     .showcase-img {
         border-radius: 1rem;
@@ -343,6 +354,9 @@
     }
     .transform-mz {
         transform: rotate3d(-25, -85, -5, 12deg);
+    }
+    .transform-mz-xl {
+        transform: rotate3d(-25, 15, -8, 12deg);
     }
     .animation-float {
         animation: 14s var(--name) var(--delay) cubic-bezier(.65,.05,.36,1) infinite;
