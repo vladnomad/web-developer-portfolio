@@ -9,14 +9,15 @@ window.addEventListener("DOMContentLoaded", () => {
           svg = document.querySelectorAll(".svg"),
           svgBg = document.querySelectorAll(".svg-bg"),
           h1 = document.querySelectorAll("h1"),
+          glassBg = document.querySelectorAll(".glass-bg"),
 
           mediaXl = window.matchMedia("(min-width: 1300px)"),
           darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)"),
-          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1],
+          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, glassBg],
           sets = [ 
-              document.querySelector('.set1'), 
-              document.querySelector('.set2'), 
-              document.querySelector('.set3') 
+              document.querySelector('.js-set1'), 
+              document.querySelector('.js-set2'), 
+              document.querySelector('.js-set3') 
           ]; 
 
     const toggleDarkMode = (array) => {
@@ -67,27 +68,10 @@ window.addEventListener("DOMContentLoaded", () => {
         updateStyles();
     }
 
-    // const slideLeft = (set) => {
-    //     const images = set.querySelectorAll('img');
-    //     let imageIndex = 0;
-
-    //     const slideImages = () => {
-    //         images.forEach((img) => {
-    //             img.style.transform = `translateX(-${100 * imageIndex}%)`;
-    //         });
-    //         imageIndex = (imageIndex + 1) % images.length;
-    //     };
-
-    //     if (mediaXl.matches) {
-    //         set.removeEventListener('click', slideImages);
-    //     } else {
-    //         set.addEventListener('click', slideImages);
-    //     }
-    // };
-
     const mediaCheck = () => {
         if (mediaXl.matches) {
             h1.forEach(item => { item.classList.add("--xl") });
+            updateStyles();
             sets.forEach(set => {
                 set.addEventListener('click', slideUp);
             });
@@ -95,16 +79,11 @@ window.addEventListener("DOMContentLoaded", () => {
             h1.forEach(item => { item.classList.remove("--xl") });
             sets.forEach(set => {
                 set.removeEventListener('click', slideUp);
-                set.classList.remove('current-set', 'next-set', 'prev-set');
             });
         }
-        // slideLeft(sets[0]);
-        // slideLeft(sets[2]);
     }
 
     mediaCheck();
 
     mediaXl.addEventListener("change", () => mediaCheck());
-
-    updateStyles();
 });    
