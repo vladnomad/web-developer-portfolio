@@ -67,23 +67,23 @@ window.addEventListener("DOMContentLoaded", () => {
         updateStyles();
     }
 
-    const slideLeft = (set) => {
-        const images = set.querySelectorAll('img');
-        let imageIndex = 0;
+    // const slideLeft = (set) => {
+    //     const images = set.querySelectorAll('img');
+    //     let imageIndex = 0;
 
-        const slideImages = () => {
-            images.forEach((img) => {
-                img.style.transform = `translateX(-${100 * imageIndex}%)`;
-            });
-            imageIndex = (imageIndex + 1) % images.length;
-        };
+    //     const slideImages = () => {
+    //         images.forEach((img) => {
+    //             img.style.transform = `translateX(-${100 * imageIndex}%)`;
+    //         });
+    //         imageIndex = (imageIndex + 1) % images.length;
+    //     };
 
-        if (mediaXl.matches) {
-            set.removeEventListener('click', slideImages);
-        } else {
-            set.addEventListener('click', slideImages);
-        }
-    };
+    //     if (mediaXl.matches) {
+    //         set.removeEventListener('click', slideImages);
+    //     } else {
+    //         set.addEventListener('click', slideImages);
+    //     }
+    // };
 
     const mediaCheck = () => {
         if (mediaXl.matches) {
@@ -95,10 +95,11 @@ window.addEventListener("DOMContentLoaded", () => {
             h1.forEach(item => { item.classList.remove("--xl") });
             sets.forEach(set => {
                 set.removeEventListener('click', slideUp);
+                set.classList.remove('current-set', 'next-set', 'prev-set');
             });
         }
-        slideLeft(sets[0]);
-        slideLeft(sets[2]);
+        // slideLeft(sets[0]);
+        // slideLeft(sets[2]);
     }
 
     mediaCheck();
