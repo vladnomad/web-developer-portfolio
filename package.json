@@ -4,6 +4,8 @@
   },
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./src/style.css",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./src/style.css --watch"
+    "watch": "npx tailwindcss -i ./src/input.css -o ./src/style.css --watch",
+    "build-mz": "npx tailwindcss -i ./src/input-mz.css -o ./src/style-mz.css",
+    "watch-mz": "npx tailwindcss -i ./src/input-mz.css -o ./src/style-mz.css --watch"
   }
 }

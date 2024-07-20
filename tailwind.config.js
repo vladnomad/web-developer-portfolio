@@ -2,9 +2,10 @@
 
 module.exports = {
   content: [
-    "./public/index.html",
+    // "./public/index.html",
+    // "./src/input.css",
     "./muzone/index.html",
-    "./src/input.css"
+    "./src/input-mz.css"
   ],
   theme: {
     screens: {

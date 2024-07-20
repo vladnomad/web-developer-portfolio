@@ -3,25 +3,26 @@
 window.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector(".toggle"),
           main = document.querySelector("main"),
-          overview = document.querySelector(".js-overview"),
+          overview = document.querySelector(".js-overview");
 
-          html = document.querySelectorAll("html"),
+    const html = document.querySelectorAll("html"),
           bg = document.querySelectorAll(".bg"),
           toggleCont = document.querySelectorAll(".toggle-container"),
           svg = document.querySelectorAll(".svg"),
           svgBg = document.querySelectorAll(".svg-bg"),
           h1 = document.querySelectorAll("h1"),
-          glassBg = document.querySelectorAll(".glass-bg"),
+          glassBg = document.querySelectorAll(".glass-bg");
 
-          mediaXl = window.matchMedia("(min-width: 1300px)"),
-          darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)"),
-          elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, glassBg],
-          sets = [ 
-              document.querySelector('.js-set1'), 
-              document.querySelector('.js-set2'), 
-              document.querySelector('.js-set3'),
-              document.querySelector('.js-set4') 
-          ]; 
+    const mediaXl = window.matchMedia("(min-width: 1300px)");
+    const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    const elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, glassBg];
+    
+    const sets = [ 
+        document.querySelector('.js-set1'), 
+        document.querySelector('.js-set2'), 
+        document.querySelector('.js-set3'),
+        document.querySelector('.js-set4') 
+    ]; 
 
     const toggleDarkMode = (array) => {
         array.forEach(arrayItem => {
@@ -100,8 +101,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const mediaCheck = () => {
         if (mediaXl.matches) {
             main.scrollTop = 0;
-            h1.forEach(item => { item.classList.add("--xl") });
             updateStyles();
+            h1.forEach(item => { item.classList.add("--xl") });
             sets.forEach(set => {
                 set.addEventListener('click', slideUp);
             });
