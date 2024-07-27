@@ -1,8 +1,8 @@
-# Web Developer Portfolio – madebynomad.dev
+# Web Developer Portfolio – vmosiichuk.dev
 
 The portfolio is developed using HTML5, CSS3, and JavaScript. Designed to provide an immersive experience, the portfolio invites exploration and interaction. Custom styles are applied to establish a distinct visual identity. Notably, the use of COLRv1 fonts plays a pivotal role in enhancing typography and elevating the overall design. This portfolio is a representation of my commitment to crafting seamless user experiences while incorporating interactive elements that engage and captivate users.
 
-![Screenshot](https://drive.google.com/uc?export=download&id=18I08GE6YV4nJbO-_pO-I56lt7iy9NEVD)
+![Screenshot](vmosiichuk-dev-screenshot.png)
 
 ### Interactivity
 Built with a strong emphasis on interactivity, this portfolio enables users to effortlessly toggle between light and dark modes to suit to their preferences. This is done to enhance user engagement, as well as, provide a visually comfortable browsing experience.
