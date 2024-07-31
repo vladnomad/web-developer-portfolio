@@ -266,11 +266,11 @@
         fill: var(--color);
     }
     .projects-container {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        position: relative;
+        top: -18.7dvh;
+        left: -1.2dvw;
         display: flex;
         align-items: center;
         opacity: 0;
@@ -309,7 +309,7 @@
         opacity: 0;
         transform: translateX(-.6375rem);
     }
-    .projects-link:hover p {
+    .projects-link:hover .projects-link--p {
         opacity: 1;
         transform: translateX(0);
     }
@@ -322,7 +322,7 @@
     }
     .projects-link--a {
         text-decoration: underline;
-        text-underline-offset: 8px;
+        text-underline-offset: 6px;
     }
 }
 

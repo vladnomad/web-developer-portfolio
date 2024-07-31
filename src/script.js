@@ -63,6 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const setNablaSrc = (mode) => {
         const nabla0 = document.querySelectorAll('.nabla0');
         const nabla1 = document.querySelectorAll('.nabla1');
+        const nabla2 = document.querySelectorAll('.nabla2');
 
         nabla0.forEach(item => {
             item.srcset = `img/nabla-${mode}0--xs.webp 11w, img/nabla-${mode}0--sm.webp 18w, img/nabla-${mode}0--xl.webp 25w`;
@@ -71,6 +72,10 @@ window.addEventListener("DOMContentLoaded", () => {
         nabla1.forEach(item => {
             item.srcset = `img/nabla-${mode}1--xs.webp 11w, img/nabla-${mode}1--sm.webp 18w, img/nabla-${mode}1--xl.webp 25w`;
             item.src = `img/nabla-${mode}1--xl.webp`;
+        });
+        nabla2.forEach(item => {
+            item.srcset = `img/nabla-${mode}2--xs.webp 17w, img/nabla-${mode}2--sm.webp 21w, img/nabla-${mode}2--xl.webp 26w`;
+            item.src = `img/nabla-${mode}2--xl.webp`;
         });
     }
 
