@@ -11,11 +11,12 @@ window.addEventListener("DOMContentLoaded", () => {
           svg = document.querySelectorAll(".svg"),
           svgBg = document.querySelectorAll(".svg-bg"),
           h1 = document.querySelectorAll("h1"),
-          glassBg = document.querySelectorAll(".glass-bg");
+          glassBg = document.querySelectorAll(".glass-bg"),
+          navIcon = document.querySelectorAll(".nav-icon");
 
     const mediaXl = window.matchMedia("(min-width: 1300px)");
     const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    const elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, glassBg];
+    const elementsToChange = [html, bg, toggleCont, svg, svgBg, h1, glassBg, navIcon];
     
     const sets = [ 
         document.querySelector('.js-set1'), 

@@ -435,6 +435,7 @@ video {
   --background-image: radial-gradient(#1d1a24 1px 1px, #f8f8ff 1px);
   --filter--sun: invert(94%) sepia(2%) saturate(5330%) hue-rotate(191deg) brightness(101%) contrast(109%);
   --filter--link: none;
+  --filter--icon: drop-shadow(-2px 4px 5px rgba(40, 26, 70, 0.3));
   --box-shadow: rgba(245, 251, 255, .2) 0px 1px 1px 0px inset, rgba(83, 76, 114, .2) 0px -10px 85px -20px, rgba(80, 64, 86, .3) -15px 15px 60px -30px;
   --box-shadow--hover: rgba(245, 251, 255, .4) 0px 1px 1px 0px inset, rgba(83, 76, 114, .4) 0px -10px 85px -20px, rgba(80, 64, 86, .4) -15px 15px 60px -30px;
   --glass-bg-color: rgba(205, 196, 226, 0.25);
@@ -784,6 +785,11 @@ html {
   border-color: var(--border-color);
 }
 
+.icon-shadow {
+  filter: var(--filter--icon);
+  transition: var(--timing) filter var(--cubic);
+}
+
 .fixed {
   position: fixed;
 }
@@ -804,6 +810,10 @@ html {
   left: 0px;
 }
 
+.left-10 {
+  left: 2.5rem;
+}
+
 .left-\[calc\(50\%_-_44px\)\] {
   left: calc(50% - 44px);
 }
@@ -814,6 +824,10 @@ html {
 
 .top-0 {
   top: 0px;
+}
+
+.top-10 {
+  top: 2.5rem;
 }
 
 .-z-10 {
@@ -901,6 +915,10 @@ html {
   height: 2.5rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-\[100dvh\] {
   height: 100dvh;
 }
@@ -923,6 +941,10 @@ html {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-20 {
+  width: 5rem;
 }
 
 .w-\[55\%\] {
@@ -968,6 +990,10 @@ html {
 
 .cursor-crosshair {
   cursor: crosshair;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .items-center {
@@ -1102,6 +1128,11 @@ html {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.drop-shadow {
+  --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .invert {
   --tw-invert: invert(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1139,6 +1170,7 @@ html {
   --background-image: radial-gradient(#2e114dbf 1px, #080410e5 1px);
   --filter--sun: invert(99%) sepia(61%) saturate(14%) hue-rotate(325deg) brightness(96%) contrast(95%);
   --filter--link: invert(94%) sepia(2%) saturate(5330%) hue-rotate(191deg) brightness(101%) contrast(109%);
+  --filter--icon: drop-shadow(-2px 4px 5px rgba(40, 26, 70, 0.3)) invert(94%) sepia(2%) saturate(5330%) hue-rotate(191deg) brightness(101%) contrast(109%);
   --box-shadow: rgba(228, 246, 250, .2) 0px 1px 1px 0px inset, 
         rgba(65, 60, 88, .2) 0px -10px 85px -20px, rgba(135, 126, 139, .2) -15px 15px 60px -30px;
   --box-shadow--hover: rgba(255, 205, 110, .4) 0px 1px 1px 0px inset, rgba(150, 142, 183, .5) 0px -10px 85px -20px, rgba(168, 144, 177, .4) -15px 15px 60px -30px;
@@ -1366,8 +1398,16 @@ html {
 }
 
 @media (min-width: 1300px) {
+  .xl\:left-20 {
+    left: 5rem;
+  }
+
   .xl\:left-\[47\.5\%\] {
     left: 47.5%;
+  }
+
+  .xl\:top-\[2\.125rem\] {
+    top: 2.125rem;
   }
 
   .xl\:hidden {

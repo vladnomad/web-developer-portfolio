@@ -23,9 +23,10 @@
         --filter--link: none;
         --box-shadow: rgba(245, 251, 255, .2) 0px 1px 1px 0px inset, rgba(83, 76, 114, .2) 0px -10px 85px -20px, rgba(80, 64, 86, .3) -15px 15px 60px -30px;
         --box-shadow--hover: rgba(245, 251, 255, .4) 0px 1px 1px 0px inset, rgba(83, 76, 114, .4) 0px -10px 85px -20px, rgba(80, 64, 86, .4) -15px 15px 60px -30px;
-        --glass-bg-color: rgba(181, 160, 229, 0.25);
-        --glass-shadow-color: rgba(58, 32, 116, 0.3);
-        --glass-border-color: rgba(81, 55, 144, 0.25);
+        --glass-bg-color: rgba(205, 196, 226, 0.25);
+        --glass-shadow-color: rgba(40, 26, 70, 0.3);
+        --glass-border-color: rgba(51, 34, 90, 0.25);
+        --icon-shadow-color: rgba(40, 26, 70, 0.35);
     }
     .--xl {
         --text-shadow: -23px 15px 3px;
@@ -69,7 +70,7 @@
         cursor-crosshair
         max-sm:text-[5.75rem]
         sm:text-7xl
-        max-xl:h-48
+        max-xl:h-36
         max-xl:mt-4
         max-xl:mb-0
         xl:text-10xl
@@ -261,8 +262,67 @@
         box-shadow: var(--box-shadow);
         background-image: var(--background-image);
     }
-    .new-project-text {
+    .projects-text {
         fill: var(--color);
+    }
+    .projects-container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transform: translateX(-20dvw);
+    }
+    .projects {
+        display: grid;
+        gap: 4rem;
+    }
+    main,
+    .projects-container {
+        transition: 
+            var(--timing) opacity var(--cubic),
+            calc(var(--timing) * 1.25) transform cubic-bezier(.32,.54,.9,.92);
+        ;
+    }
+    .projects-link p {
+        transition: 
+            var(--timing) opacity var(--cubic),
+            var(--timing) transform cubic-bezier(.32,.54,.9,.92);
+        ;
+    }
+    main.js-active {
+        opacity: 0;
+        transform: translateX(-20dvw);
+        z-index: -10;
+    }
+    .projects-container.js-active {
+        opacity: 1;
+        transform: translateX(0);  
+    }
+    .projects-toggle.js-active {
+        z-index: 10;
+    }
+    .projects-link--p {
+        opacity: 0;
+        transform: translateX(-.6375rem);
+    }
+    .projects-link:hover p {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .projects-link:hover a {
+        text-decoration: underline; 
+    }
+    .icon-shadow {
+        filter: drop-shadow(-2px 2px 3px var(--icon-shadow-color));
+        transition: var(--timing) filter var(--cubic);
+    }
+    .projects-link--a {
+        text-decoration: underline;
+        text-underline-offset: 8px;
     }
 }
 
@@ -277,7 +337,7 @@
         --opacity: 1;
         --background-color--moon: #efeeff;
         --text-shadow-color: #473d5380;
-        --text-shadow--nabla-color: #56515b59;
+        --text-shadow--nabla-color: #41354d6b;
         --background-image: radial-gradient(#2e114dbf 1px, #080410e5 1px);
         --filter--sun: invert(99%) sepia(61%) saturate(14%) hue-rotate(325deg) brightness(96%) contrast(95%);
         --filter--link: invert(94%) sepia(2%) saturate(5330%) hue-rotate(191deg) brightness(101%) contrast(109%);
@@ -287,6 +347,7 @@
         --glass-bg-color: rgba(54, 43, 79, 0.3);
         --glass-shadow-color: rgba(116, 83, 189, 0.15);
         --glass-border-color: rgba(116, 101, 151, 0.3);
+        --icon-shadow-color: rgba(116, 83, 189, 0.15);
     }
     .--dark.--xl {
         --text-shadow-color: #473d5380;
